@@ -11,7 +11,7 @@ Pacific.Boot = function(){};
 
 Pacific.Boot.prototype = {
     preload: function() {
-        this.game.load.script('Load', 'js/load.js');
+        this.game.load.script('LoadScript', 'js/load.js');
     },
 
     create: function() {
@@ -19,6 +19,7 @@ Pacific.Boot.prototype = {
         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.game.scale.pageAlignHorizontally = true;
         this.game.scale.pageAlignVertically = true;
+
         this.game.state.add('Load', Pacific.Load, true);
     }
 };

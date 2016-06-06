@@ -3,6 +3,7 @@ Pacific.Load = function(){};
 Pacific.Load.prototype = {
     preload: function() {
         this.game.load.image('logo', 'img/logo.png');
+        this.game.load.script('MenuScript', 'js/menu.js');
     },
 
     create: function() {
@@ -13,5 +14,7 @@ Pacific.Load.prototype = {
         );
 
         this.logo.anchor.set(0.5, 0.5);
+
+        this.game.state.add('Menu', Pacific.Menu, true);
     }
 };
