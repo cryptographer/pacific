@@ -19,6 +19,8 @@ Pacific.Game.prototype = {
         this.game.physics.arcade.enable(this.player);
         this.player.body.collideWorldBounds = true;
 
+        this.game.camera.x = this.player.position.x - (this.game.camera.width / 2);
+        this.game.camera.y = this.player.position.y - (this.game.camera.height / 2);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_TOPDOWN);
     },
 
