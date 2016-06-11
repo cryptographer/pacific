@@ -2,11 +2,25 @@ Pacific.Load = function(){};
 
 Pacific.Load.prototype = {
     preload: function() {
-        this.game.load.image('logo', 'img/logo.png');
-        this.game.load.image('tiles', 'img/tiles.png');
-        this.game.load.script('MenuScript', 'js/menu.js');
-        this.game.load.spritesheet('player', 'img/player.png', 16, 16, 4);
-        this.game.load.tilemap(
+        this.logo = this.add.image(
+            this.game.world.centerX,
+            this.game.world.centerY,
+            'logo'
+        );
+        this.logo.anchor.set(0.5, 0.5);
+
+        this.bar = this.add.sprite(
+            this.game.world.centerX,
+            this.game.world.height - 64,
+            'bar'
+        );
+        this.bar.anchor.set(0.5, 0.5);
+        this.load.setPreloadSprite(this.bar);
+
+        this.load.image('tiles', 'img/tiles.png');
+        this.load.script('MenuScript', 'js/menu.js');
+        this.load.spritesheet('player', 'img/player.png', 16, 16, 4);
+        this.load.tilemap(
             'map',
             'map/map.json',
             null,
@@ -15,13 +29,6 @@ Pacific.Load.prototype = {
     },
 
     create: function() {
-        this.logo = this.game.add.image(
-            this.game.world.centerX,
-            this.game.world.centerY,
-            'logo'
-        );
-        this.logo.anchor.set(0.5, 0.5);
-
-        this.game.state.add('Menu', Pacific.Menu, true);
+        this.state.add('Menu', Pacific.Menu, true);
     }
 };

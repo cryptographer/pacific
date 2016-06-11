@@ -2,7 +2,7 @@ Pacific.Menu = function(){};
 
 Pacific.Menu.prototype = {
     preload: function() {
-        this.game.load.script('GameScript', 'js/game.js');
+        this.load.script('GameScript', 'js/game.js');
     },
 
     create: function() {
@@ -16,7 +16,7 @@ Pacific.Menu.prototype = {
         this.startButton.anchor.set(0.5, 0.5);
         this.startButton.inputEnabled = true;
         this.startButton.events.onInputUp.add(function() {
-            this.game.state.add('Game', Pacific.Game, true);
+            this.state.add('Game', Pacific.Game, true);
         }, this);
     }
 };

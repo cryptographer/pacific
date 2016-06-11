@@ -11,7 +11,9 @@ Pacific.Boot = function(){};
 
 Pacific.Boot.prototype = {
     preload: function() {
-        this.game.load.script('LoadScript', 'js/load.js');
+        this.load.image('bar', 'img/bar.png');
+        this.load.image('logo', 'img/logo.png');
+        this.load.script('LoadScript', 'js/load.js');
     },
 
     create: function() {
@@ -20,7 +22,7 @@ Pacific.Boot.prototype = {
         this.game.scale.pageAlignHorizontally = true;
         this.game.scale.pageAlignVertically = true;
 
-        this.game.state.add('Load', Pacific.Load, true);
+        this.state.add('Load', Pacific.Load, true);
     }
 };
 
