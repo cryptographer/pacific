@@ -4,8 +4,10 @@ Pacific.Game.prototype = {
     create: function() {
         this.map = this.game.add.tilemap('map');
         this.map.addTilesetImage('tiles', 'tiles');
-        this.background = this.map.createLayer('background');
-        this.background.resizeWorld();
+        this.ground = this.map.createLayer('ground');
+        this.obstacles = this.map.createLayer('obstacles');
+        this.map.setCollision(2, true, 'obstacles');
+        this.ground.resizeWorld();
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -27,6 +29,7 @@ Pacific.Game.prototype = {
     update: function() {
         this.player.body.velocity.x = 0;
         this.player.body.velocity.y = 0;
+        this.game.physics.arcade.collide(this.player, this.obstacles);
 
         if(this.cursors.up.isDown) {
             this.player.frame = 0;
