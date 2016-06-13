@@ -17,6 +17,7 @@ Pacific.Load.prototype = {
         this.bar.anchor.set(0.5, 0.5);
         this.load.setPreloadSprite(this.bar);
 
+        this.load.image('menuButton', 'img/menu_button.png');
         this.load.image('tiles', 'img/tiles.png');
         this.load.script('MenuScript', 'js/menu.js');
         this.load.spritesheet('player', 'img/player.png', 16, 16, 4);
